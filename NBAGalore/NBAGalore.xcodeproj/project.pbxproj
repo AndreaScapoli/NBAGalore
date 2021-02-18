@@ -16,6 +16,7 @@
 		2D887D6025DEBECA004A5E5F /* NBAGaloreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D5F25DEBECA004A5E5F /* NBAGaloreTests.swift */; };
 		2D887D6B25DEBECB004A5E5F /* NBAGaloreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D6A25DEBECB004A5E5F /* NBAGaloreUITests.swift */; };
 		2D887D8525DEBF6B004A5E5F /* TeamCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D8425DEBF6B004A5E5F /* TeamCollectionViewModel.swift */; };
+		2D887DBE25DECC3E004A5E5F /* TeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887DBD25DECC3E004A5E5F /* TeamCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2D887D6A25DEBECB004A5E5F /* NBAGaloreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAGaloreUITests.swift; sourceTree = "<group>"; };
 		2D887D6C25DEBECB004A5E5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D887D8425DEBF6B004A5E5F /* TeamCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewModel.swift; sourceTree = "<group>"; };
+		2D887DBD25DECC3E004A5E5F /* TeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +143,7 @@
 		2D887D8225DEBF2D004A5E5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */,
-				2D887D4E25DEBEC8004A5E5F /* TeamCollection.storyboard */,
+				2D887DA925DECADB004A5E5F /* TeamCollection */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -153,6 +154,16 @@
 				2D887D8425DEBF6B004A5E5F /* TeamCollectionViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2D887DA925DECADB004A5E5F /* TeamCollection */ = {
+			isa = PBXGroup;
+			children = (
+				2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */,
+				2D887D4E25DEBEC8004A5E5F /* TeamCollection.storyboard */,
+				2D887DBD25DECC3E004A5E5F /* TeamCollectionViewCell.swift */,
+			);
+			path = TeamCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 			files = (
 				2D887D4D25DEBEC8004A5E5F /* TeamCollectionViewController.swift in Sources */,
 				2D887D4925DEBEC8004A5E5F /* AppDelegate.swift in Sources */,
+				2D887DBE25DECC3E004A5E5F /* TeamCollectionViewCell.swift in Sources */,
 				2D887D4B25DEBEC8004A5E5F /* SceneDelegate.swift in Sources */,
 				2D887D8525DEBF6B004A5E5F /* TeamCollectionViewModel.swift in Sources */,
 			);
