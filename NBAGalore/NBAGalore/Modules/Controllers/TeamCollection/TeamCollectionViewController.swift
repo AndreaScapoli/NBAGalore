@@ -18,6 +18,11 @@ class TeamCollectionViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        NetworkManager.shared.getTeams() { result in
+            
+            print(result)
+        }
     }
 }
 
