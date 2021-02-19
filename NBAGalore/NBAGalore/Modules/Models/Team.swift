@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Teams: Codable {
+public struct Teams: Codable {
     
     var data: [Team]
 }
 
-struct Team: Codable {
+public struct Team: Codable {
     
     var id: Int
     var abbreviation: String

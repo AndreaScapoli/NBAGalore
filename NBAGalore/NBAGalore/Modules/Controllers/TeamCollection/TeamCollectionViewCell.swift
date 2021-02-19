@@ -14,9 +14,20 @@ class TeamCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var teamImage: UIImageView!
     @IBOutlet weak var teamName: UILabel!
     
-    func configureCell(name: String) {
+    var teamId: Int?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        self.teamName.text = name
+        self.contentView.layer.cornerRadius = 20.0
+        self.contentView.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
+    
+    func configureCell(teamName: String, teamId: Int) {
+        
+        self.teamName.text = teamName
+        self.teamId = teamId
+        
     }
     
 }

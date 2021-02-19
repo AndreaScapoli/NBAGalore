@@ -9,4 +9,25 @@ import Foundation
 
 class TeamCollectionViewModel: NSObject {
     
+    //MARK: Bindings
+    private var teams: Teams? {
+        didSet {
+            self.teamsDidFetch?(self.teams)
+        }
+    }
+    var teamsDidFetch: ((Teams?) -> Void)?
+    
+    override init() {
+        super.init()
+        
+        self.retrieveData()
+    }
+    
+    func retrieveData() {
+        
+        NetworkManager.shared.getTeams() { result in
+            
+            self.teams = result
+        }
+    }
 }
