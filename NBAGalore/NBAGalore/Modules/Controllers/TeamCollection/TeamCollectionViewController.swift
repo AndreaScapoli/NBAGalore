@@ -13,11 +13,13 @@ class TeamCollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    private let viewModel = TeamCollectionViewModel()
+    var viewModel: TeamCollectionViewModel!
     private var dataSource: CollectionDataSource<TeamCollectionViewCell, Team>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
         
         self.setupLayout()
         self.setupBindings()
@@ -52,5 +54,13 @@ class TeamCollectionViewController: UIViewController {
             self.collectionView.dataSource = self.dataSource
             self.collectionView.reloadData()
         }
+    }
+}
+
+extension TeamCollectionViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.viewModel.navigateToPlayerTable()
     }
 }

@@ -9,6 +9,8 @@ import Foundation
 
 class TeamCollectionViewModel: NSObject {
     
+    var coordinator: PlayerCoordination?
+    
     //MARK: Bindings
     private var teams: Teams? {
         didSet {
@@ -29,5 +31,10 @@ class TeamCollectionViewModel: NSObject {
             
             self.teams = result
         }
+    }
+    
+    func navigateToPlayerTable() {
+        
+        self.coordinator?.coordinateToPlayerTable()
     }
 }

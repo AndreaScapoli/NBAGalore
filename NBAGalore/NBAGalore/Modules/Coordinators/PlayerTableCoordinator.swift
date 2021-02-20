@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  PlayerTableCoordinator.swift
 //  NBAGalore
 //
 //  Created by Andrea Scapoli on 20/02/21.
@@ -7,12 +7,11 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+class PlayerCoordinator: Coordinator {
     
     // MARK: - Properties
     private let navController: UINavigationController
     private let window: UIWindow
-    private var childCoordinators: [Coordinator] = []
     
     // MARK: - Initializer
     init(navController: UINavigationController, window: UIWindow) {
@@ -24,14 +23,18 @@ class AppCoordinator: Coordinator {
         
         window.rootViewController = navController
         window.makeKeyAndVisible()
-        presentTeamCollectionView()
+        presentPlayerTableView()
     }
     
-    // MARK: - Navigation
-    private func presentTeamCollectionView() {
+    private func presentPlayerTableView() {
         
-      let teamCollectionVC = UIStoryboard.instantiateTeamCollectionViewController()
-      navController.setViewControllers([teamCollectionVC], animated: true)
-//      childCoordinators.removeAll { $0 is AuthCoordinator }
+        let playerTableVC = UIStoryboard.instantiatePlayerTableViewController()
+        
+        playerTableVC.viewModel = PlayerTableViewModel()
+        
+        navController.pushViewController(playerTableVC, animated: true)
+//        navController.present(playerTableVC, animated: true, completion: nil)
     }
+    
+    
 }
