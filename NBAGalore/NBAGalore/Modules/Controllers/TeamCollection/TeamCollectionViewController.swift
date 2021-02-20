@@ -13,7 +13,7 @@ class TeamCollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    private var viewModel = TeamCollectionViewModel()
+    private let viewModel = TeamCollectionViewModel()
     private var dataSource: CollectionDataSource<TeamCollectionViewCell, Team>!
     
     override func viewDidLoad() {
@@ -25,9 +25,9 @@ class TeamCollectionViewController: UIViewController {
     
     private func setupBindings() {
         
-        self.viewModel.teamsDidFetch = { teams in
+        self.viewModel.teamsDidFetch = { [weak self] teams in
             
-            self.updateCollectionDataSource(withData: teams?.data ?? [])
+            self?.updateCollectionDataSource(withData: teams?.data ?? [])
         }
     }
     
@@ -37,6 +37,7 @@ class TeamCollectionViewController: UIViewController {
         self.collectionView.backgroundView?.backgroundColor = .clear
         
         self.backgroundImage.image = UIImage(named: "BasketBackground")
+        self.backgroundImage.alpha = 0.6
     }
     
     private func updateCollectionDataSource(withData data: [Team]) {

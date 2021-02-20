@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,7 +43,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="21" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yy-oB-Maj">
-                                                    <rect key="frame" x="79" y="169" width="42" height="21"/>
+                                                    <rect key="frame" x="79" y="89.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -52,7 +51,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wFJ-ek-MCt" firstAttribute="leading" secondItem="FsH-pE-tKA" secondAttribute="leading" id="454-f6-rLv"/>
-                                                <constraint firstAttribute="bottom" secondItem="6yy-oB-Maj" secondAttribute="bottom" constant="10" id="6pr-vO-Ece"/>
+                                                <constraint firstItem="6yy-oB-Maj" firstAttribute="centerY" secondItem="FsH-pE-tKA" secondAttribute="centerY" id="Hg2-nh-p6T"/>
                                                 <constraint firstItem="wFJ-ek-MCt" firstAttribute="top" secondItem="FsH-pE-tKA" secondAttribute="top" id="RoJ-E4-4a4"/>
                                                 <constraint firstAttribute="bottom" secondItem="wFJ-ek-MCt" secondAttribute="bottom" id="SKP-Z2-IiI"/>
                                                 <constraint firstItem="6yy-oB-Maj" firstAttribute="centerX" secondItem="FsH-pE-tKA" secondAttribute="centerX" id="c6I-a4-ema"/>
@@ -69,7 +68,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Kh-TA-3LC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Usy-RV-xaX" firstAttribute="bottom" secondItem="0Kh-TA-3LC" secondAttribute="bottom" id="BB6-uX-83U"/>
                             <constraint firstItem="Usy-RV-xaX" firstAttribute="top" secondItem="0Kh-TA-3LC" secondAttribute="top" id="FfA-Uk-Ko7"/>
@@ -93,8 +92,5 @@
     </scenes>
     <resources>
         <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

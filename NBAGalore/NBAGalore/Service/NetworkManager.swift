@@ -70,27 +70,5 @@ class NetworkManager: NSObject {
                 print(error)
             }
         }
-        
-        //        let task = session?.dataTask(with: url, completionHandler: { (data, response, error) in
-        //
-        //            if let error = error {
-        //                print("Error accessing swapi.co: \(error)")
-        //                return
-        //            } else {
-        //
-        //                guard let httpResponse = response as? HTTPURLResponse,
-        //                      (200...299).contains(httpResponse.statusCode) else {
-        //                    print("Error with the response, unexpected status code: \(String(describing: response))")
-        //                    return
-        //                }
-        //
-        //                if let data = data,
-        //                   let teams = try? JSONDecoder().decode(Teams.self, from: data) {
-        //                    completionHandler(teams)
-        //                }
-        //            }
-        //        })
-        //
-        //        task?.resume()
     }
 }
