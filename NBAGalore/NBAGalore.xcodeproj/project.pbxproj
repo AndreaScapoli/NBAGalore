@@ -20,6 +20,9 @@
 		2D887DD625DEEA2B004A5E5F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887DD525DEEA2B004A5E5F /* Team.swift */; };
 		2D887DFA25DFC9EB004A5E5F /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887DF925DFC9EB004A5E5F /* CollectionDataSource.swift */; };
 		2D887E4725E01640004A5E5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D887E4625E01640004A5E5F /* LaunchScreen.storyboard */; };
+		2D93164425E174E8005CF01A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93164325E174E8005CF01A /* Coordinator.swift */; };
+		2D93164D25E17529005CF01A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93164C25E17529005CF01A /* AppCoordinator.swift */; };
+		2D93165325E175C8005CF01A /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93165225E175C8005CF01A /* Storyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		2D887DD525DEEA2B004A5E5F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		2D887DF925DFC9EB004A5E5F /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		2D887E4625E01640004A5E5F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D93164325E174E8005CF01A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2D93164C25E17529005CF01A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2D93165225E175C8005CF01A /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 		2D887D4725DEBEC8004A5E5F /* NBAGalore */ = {
 			isa = PBXGroup;
 			children = (
+				2D93165125E175B7005CF01A /* Utilities */,
+				2D93164225E174DB005CF01A /* Protocol */,
 				2D887DC625DECFB8004A5E5F /* Repository */,
 				2D887DC525DECFAD004A5E5F /* Service */,
 				2D887D8125DEBF27004A5E5F /* Modules */,
@@ -142,6 +150,7 @@
 		2D887D8125DEBF27004A5E5F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2D93164B25E1751A005CF01A /* Coordinator */,
 				2D887DD325DEE898004A5E5F /* Models */,
 				2D887D8325DEBF33004A5E5F /* ViewModels */,
 				2D887D8225DEBF2D004A5E5F /* Controllers */,
@@ -197,6 +206,30 @@
 				2D887DD525DEEA2B004A5E5F /* Team.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2D93164225E174DB005CF01A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2D93164325E174E8005CF01A /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2D93164B25E1751A005CF01A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2D93164C25E17529005CF01A /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2D93165125E175B7005CF01A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2D93165225E175C8005CF01A /* Storyboard.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,12 +364,15 @@
 			files = (
 				2D887D4D25DEBEC8004A5E5F /* TeamCollectionViewController.swift in Sources */,
 				2D887D4925DEBEC8004A5E5F /* AppDelegate.swift in Sources */,
+				2D93164D25E17529005CF01A /* AppCoordinator.swift in Sources */,
 				2D887DD625DEEA2B004A5E5F /* Team.swift in Sources */,
 				2D887DBE25DECC3E004A5E5F /* TeamCollectionViewCell.swift in Sources */,
 				2D887D4B25DEBEC8004A5E5F /* SceneDelegate.swift in Sources */,
 				2D887DC825DED1C9004A5E5F /* NetworkManager.swift in Sources */,
+				2D93165325E175C8005CF01A /* Storyboard.swift in Sources */,
 				2D887D8525DEBF6B004A5E5F /* TeamCollectionViewModel.swift in Sources */,
 				2D887DFA25DFC9EB004A5E5F /* CollectionDataSource.swift in Sources */,
+				2D93164425E174E8005CF01A /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
