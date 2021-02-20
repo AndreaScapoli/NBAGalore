@@ -23,13 +23,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Peo-z9-HOk">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeamCellId" id="zU8-se-2CL" customClass="TeamCollectionViewCell" customModule="NBAGalore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamCellId" id="zU8-se-2CL" customClass="TeamCollectionViewCell" customModule="NBAGalore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FsH-pE-tKA">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -65,16 +65,37 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="collectionHeader" id="h3Z-Js-xDO" customClass="TeamCollectionReusableView" customModule="NBAGalore" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17B-bc-DwP">
+                                            <rect key="frame" x="8" y="8" width="398" height="34"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="17B-bc-DwP" secondAttribute="bottom" id="gf8-y2-Cdo"/>
+                                        <constraint firstItem="17B-bc-DwP" firstAttribute="leading" secondItem="h3Z-Js-xDO" secondAttribute="leadingMargin" id="l6K-1n-vkJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="17B-bc-DwP" secondAttribute="trailing" id="xQy-ff-4si"/>
+                                        <constraint firstItem="17B-bc-DwP" firstAttribute="top" secondItem="h3Z-Js-xDO" secondAttribute="topMargin" id="zut-Xg-6qK"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerTitle" destination="17B-bc-DwP" id="gP8-pz-PW6"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Kh-TA-3LC"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Usy-RV-xaX" firstAttribute="bottom" secondItem="0Kh-TA-3LC" secondAttribute="bottom" id="BB6-uX-83U"/>
-                            <constraint firstItem="Usy-RV-xaX" firstAttribute="top" secondItem="0Kh-TA-3LC" secondAttribute="top" id="FfA-Uk-Ko7"/>
                             <constraint firstItem="Usy-RV-xaX" firstAttribute="trailing" secondItem="0Kh-TA-3LC" secondAttribute="trailing" id="GWC-v9-idC"/>
+                            <constraint firstItem="Usy-RV-xaX" firstAttribute="bottom" secondItem="0Kh-TA-3LC" secondAttribute="bottom" id="SiQ-C0-3D0"/>
                             <constraint firstItem="Ibs-Hf-M5V" firstAttribute="trailing" secondItem="Usy-RV-xaX" secondAttribute="trailing" id="XU3-Rj-7or"/>
                             <constraint firstItem="Ibs-Hf-M5V" firstAttribute="leading" secondItem="Usy-RV-xaX" secondAttribute="leading" id="c6b-nd-Q4f"/>
+                            <constraint firstItem="Usy-RV-xaX" firstAttribute="top" secondItem="0Kh-TA-3LC" secondAttribute="top" id="mKh-zd-s0j"/>
                             <constraint firstItem="Ibs-Hf-M5V" firstAttribute="top" secondItem="Usy-RV-xaX" secondAttribute="top" id="opQ-wn-jTv"/>
                             <constraint firstItem="Usy-RV-xaX" firstAttribute="leading" secondItem="0Kh-TA-3LC" secondAttribute="leading" id="sBh-xs-lDf"/>
                             <constraint firstItem="Ibs-Hf-M5V" firstAttribute="bottom" secondItem="Usy-RV-xaX" secondAttribute="bottom" id="xlc-Be-pzz"/>

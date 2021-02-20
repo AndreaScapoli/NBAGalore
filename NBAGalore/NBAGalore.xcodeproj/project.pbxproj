@@ -26,6 +26,9 @@
 		2D93167025E17E06005CF01A /* PlayerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93166F25E17E06005CF01A /* PlayerTableViewModel.swift */; };
 		2D93167525E17E20005CF01A /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93167425E17E20005CF01A /* PlayerTableViewController.swift */; };
 		2D93168225E18467005CF01A /* PlayerTableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93168125E18467005CF01A /* PlayerTableCoordinator.swift */; };
+		2D93168725E18B0F005CF01A /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93168625E18B0F005CF01A /* PlayerTableViewCell.swift */; };
+		2D93168C25E18E7B005CF01A /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93168B25E18E7B005CF01A /* TableDataSource.swift */; };
+		2D93169125E19BDE005CF01A /* TeamCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93169025E19BDE005CF01A /* TeamCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		2D93166F25E17E06005CF01A /* PlayerTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewModel.swift; sourceTree = "<group>"; };
 		2D93167425E17E20005CF01A /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
 		2D93168125E18467005CF01A /* PlayerTableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableCoordinator.swift; sourceTree = "<group>"; };
+		2D93168625E18B0F005CF01A /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		2D93168B25E18E7B005CF01A /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
+		2D93169025E19BDE005CF01A /* TeamCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 				2D887D8425DEBF6B004A5E5F /* TeamCollectionViewModel.swift */,
 				2D93166F25E17E06005CF01A /* PlayerTableViewModel.swift */,
 				2D887DF925DFC9EB004A5E5F /* CollectionDataSource.swift */,
+				2D93168B25E18E7B005CF01A /* TableDataSource.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 				2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */,
 				2D887D4E25DEBEC8004A5E5F /* TeamCollection.storyboard */,
 				2D887DBD25DECC3E004A5E5F /* TeamCollectionViewCell.swift */,
+				2D93169025E19BDE005CF01A /* TeamCollectionReusableView.swift */,
 			);
 			path = TeamCollection;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 			children = (
 				2D93167425E17E20005CF01A /* PlayerTableViewController.swift */,
 				2D93166725E17DE9005CF01A /* PlayerTable.storyboard */,
+				2D93168625E18B0F005CF01A /* PlayerTableViewCell.swift */,
 			);
 			path = PlayerTable;
 			sourceTree = "<group>";
@@ -380,12 +389,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D93168725E18B0F005CF01A /* PlayerTableViewCell.swift in Sources */,
 				2D887D4D25DEBEC8004A5E5F /* TeamCollectionViewController.swift in Sources */,
 				2D93168225E18467005CF01A /* PlayerTableCoordinator.swift in Sources */,
 				2D887D4925DEBEC8004A5E5F /* AppDelegate.swift in Sources */,
 				2D93167525E17E20005CF01A /* PlayerTableViewController.swift in Sources */,
 				2D93164D25E17529005CF01A /* AppCoordinator.swift in Sources */,
 				2D887DD625DEEA2B004A5E5F /* Team.swift in Sources */,
+				2D93168C25E18E7B005CF01A /* TableDataSource.swift in Sources */,
+				2D93169125E19BDE005CF01A /* TeamCollectionReusableView.swift in Sources */,
 				2D887DBE25DECC3E004A5E5F /* TeamCollectionViewCell.swift in Sources */,
 				2D887DC825DED1C9004A5E5F /* NetworkManager.swift in Sources */,
 				2D93165325E175C8005CF01A /* Storyboard.swift in Sources */,

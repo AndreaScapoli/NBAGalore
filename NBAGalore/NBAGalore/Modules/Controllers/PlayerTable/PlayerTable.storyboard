@@ -16,20 +16,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prova" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk5-cr-Mt6">
-                                <rect key="frame" x="185.5" y="437.5" width="43" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IIG-As-niN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KI8-45-YdI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playerCellId" id="1xh-AM-jfh" customClass="PlayerTableViewCell" customModule="NBAGalore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1xh-AM-jfh" id="5fe-jj-fxy">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlayerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-aL-6NK">
+                                                    <rect key="frame" x="20" y="11" width="355" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pqg-aL-6NK" firstAttribute="leading" secondItem="5fe-jj-fxy" secondAttribute="leadingMargin" id="4aL-IA-sOi"/>
+                                                <constraint firstItem="Pqg-aL-6NK" firstAttribute="top" secondItem="5fe-jj-fxy" secondAttribute="topMargin" id="8zL-FA-kpg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Pqg-aL-6NK" secondAttribute="bottom" id="JP8-fj-9NT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Pqg-aL-6NK" secondAttribute="trailing" id="X14-H3-ki4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                        <connections>
+                                            <outlet property="playerName" destination="Pqg-aL-6NK" id="FtK-CN-RvY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GKa-2h-ltY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kk5-cr-Mt6" firstAttribute="centerX" secondItem="b3u-Kb-4xe" secondAttribute="centerX" id="KbY-jp-zr5"/>
-                            <constraint firstItem="kk5-cr-Mt6" firstAttribute="centerY" secondItem="b3u-Kb-4xe" secondAttribute="centerY" id="jfX-h1-5FL"/>
+                            <constraint firstItem="IIG-As-niN" firstAttribute="top" secondItem="GKa-2h-ltY" secondAttribute="top" id="COv-uc-nCZ"/>
+                            <constraint firstItem="KI8-45-YdI" firstAttribute="bottom" secondItem="IIG-As-niN" secondAttribute="bottom" id="FMM-eD-DKW"/>
+                            <constraint firstItem="IIG-As-niN" firstAttribute="trailing" secondItem="GKa-2h-ltY" secondAttribute="trailing" id="dRO-R6-Rjm"/>
+                            <constraint firstItem="IIG-As-niN" firstAttribute="bottom" secondItem="GKa-2h-ltY" secondAttribute="bottom" id="eko-68-6Fo"/>
+                            <constraint firstItem="KI8-45-YdI" firstAttribute="leading" secondItem="IIG-As-niN" secondAttribute="leading" id="nWA-YB-rda"/>
+                            <constraint firstItem="IIG-As-niN" firstAttribute="leading" secondItem="GKa-2h-ltY" secondAttribute="leading" id="oBL-UY-lWE"/>
+                            <constraint firstItem="KI8-45-YdI" firstAttribute="trailing" secondItem="IIG-As-niN" secondAttribute="trailing" id="qui-xr-9lT"/>
+                            <constraint firstItem="KI8-45-YdI" firstAttribute="top" secondItem="IIG-As-niN" secondAttribute="top" id="unv-L4-Pgg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="IIG-As-niN" id="rBR-H0-dP1"/>
+                        <outlet property="playerTableView" destination="KI8-45-YdI" id="MtW-ng-ytR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z8f-qY-IOK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -37,8 +76,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

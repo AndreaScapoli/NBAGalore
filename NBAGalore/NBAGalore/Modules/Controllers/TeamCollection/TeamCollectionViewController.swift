@@ -40,11 +40,12 @@ class TeamCollectionViewController: UIViewController {
         
         self.backgroundImage.image = UIImage(named: "BasketBackground")
         self.backgroundImage.alpha = 0.6
+        self.backgroundImage.contentMode = .scaleAspectFill
     }
     
     private func updateCollectionDataSource(withData data: [Team]) {
         
-        self.dataSource = CollectionDataSource(cellIdentifier: "TeamCellId", items: data, configureCell: { (cell, data) in
+        self.dataSource = CollectionDataSource(cellIdentifier: "teamCellId", items: data, headerTitle: "Choose A Team", configureCell: { (cell, data) in
             
             cell.configureCell(teamName: data.full_name, teamId: data.id)
         })

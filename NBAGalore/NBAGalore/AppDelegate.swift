@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navController = UINavigationController()
+        navController.navigationBar.barTintColor = .black
         let appCoordinator = AppCoordinator(navController: navController, window: window)
         app = appCoordinator
       

@@ -20,7 +20,8 @@ class TeamCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.contentView.layer.cornerRadius = 20.0
-        self.contentView.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        self.contentView.backgroundColor = .lightGray
+        self.contentView.alpha = 0.8
     }
     
     func configureCell(teamName: String, teamId: Int) {
