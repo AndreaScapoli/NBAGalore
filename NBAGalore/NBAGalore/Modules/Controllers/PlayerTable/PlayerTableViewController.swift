@@ -50,6 +50,9 @@ class PlayerTableViewController: UIViewController {
             
             if loaded ?? false {
                 
+                DispatchQueue.main.async {
+                    self?.playerTableView.tableFooterView = nil
+                }
                 self?.updateTableDataSource(withData: self?.viewModel.playerList ?? [])
             }
             
@@ -72,6 +75,19 @@ class PlayerTableViewController: UIViewController {
         }
     }
     
+    private func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.center = footerView.center
+        spinner.startAnimating()
+        spinner.color = .black
+        
+        footerView.addSubview(spinner)
+        
+        return footerView
+    }
+    
 }
 
 extension PlayerTableViewController: UITableViewDelegate {
@@ -88,6 +104,8 @@ extension PlayerTableViewController: UIScrollViewDelegate {
         
         let position = scrollView.contentOffset.y
         if position > (self.playerTableView.contentSize.height - 100 - scrollView.frame.size.height) && !self.viewModel.isPaginating {
+            
+            self.playerTableView.tableFooterView = createSpinnerFooter()
             
             self.viewModel.numberOfFetch += 20
             self.viewModel.isPaginating = true
