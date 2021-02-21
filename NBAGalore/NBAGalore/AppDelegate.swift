@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navController = UINavigationController()
         navController.navigationBar.barTintColor = .black
+        navController.navigationBar.tintColor = .lightGray
         
         let appCoordinator = AppCoordinator(navController: navController, window: window)
         app = appCoordinator

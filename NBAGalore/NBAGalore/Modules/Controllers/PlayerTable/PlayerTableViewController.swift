@@ -107,7 +107,7 @@ extension PlayerTableViewController: UIScrollViewDelegate {
             
             self.playerTableView.tableFooterView = createSpinnerFooter()
             
-            self.viewModel.numberOfFetch += 20
+            self.viewModel.numberOfFetch += 10
             self.viewModel.isPaginating = true
             self.viewModel.retrieveData()
         }
