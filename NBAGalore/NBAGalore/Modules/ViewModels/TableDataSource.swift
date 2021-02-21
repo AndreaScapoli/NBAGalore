@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableDataSource<Cell: PlayerTableViewCell,T>: NSObject, UITableViewDataSource {
+class TableDataSource<Cell: UITableViewCell,T>: NSObject, UITableViewDataSource {
 
     //MARK: Properties
     private var cellIdentifier : String!

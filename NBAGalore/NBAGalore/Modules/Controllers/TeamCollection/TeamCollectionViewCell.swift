@@ -11,7 +11,6 @@ class TeamCollectionViewCell: UICollectionViewCell {
     
     //MARK: Outlets:
     
-    @IBOutlet weak var teamImage: UIImageView!
     @IBOutlet weak var teamName: UILabel!
     
     var teamId: Int?
@@ -22,6 +21,8 @@ class TeamCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 20.0
         self.contentView.backgroundColor = .lightGray
         self.contentView.alpha = 0.8
+        
+        teamName.numberOfLines = 0
     }
     
     func configureCell(teamName: String, teamId: Int) {

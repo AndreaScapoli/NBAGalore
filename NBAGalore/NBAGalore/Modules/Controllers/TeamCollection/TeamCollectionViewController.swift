@@ -14,7 +14,10 @@ class TeamCollectionViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     
     var viewModel: TeamCollectionViewModel!
-    private var dataSource: CollectionDataSource<TeamCollectionViewCell, Team>!
+    private var dataSource: CollectionDataSource<TeamCollectionViewCell, TeamCollectionReusableView, Team>!
+    
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let itemsPerRow: CGFloat = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +48,18 @@ class TeamCollectionViewController: UIViewController {
     
     private func updateCollectionDataSource(withData data: [Team]) {
         
-        self.dataSource = CollectionDataSource(cellIdentifier: "teamCellId", items: data, headerTitle: "Choose A Team", configureCell: { (cell, data) in
+        self.dataSource = CollectionDataSource(cellIdentifier: "teamCellId", items: data, headerViewIdentifier: "collectionHeader", headerTitle: "Choose A Team: ", configureCell: { (cell, headerView, data, headerTitle) in
             
-            cell.configureCell(teamName: data.full_name, teamId: data.id)
+            if let cell = cell {
+                
+                cell.configureCell(teamName: data?.full_name ?? "", teamId: data?.id ?? 0)
+            }
+            
+            if let headerView = headerView {
+                
+                headerView.headerTitle.text = headerTitle
+            }
+            
         })
         
         DispatchQueue.main.async {
@@ -64,4 +76,27 @@ extension TeamCollectionViewController: UICollectionViewDelegate {
         
         self.viewModel.navigateToPlayerTable()
     }
+}
+
+extension TeamCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath ) -> CGSize {
+        
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int ) -> UIEdgeInsets {
+        
+        return sectionInsets
+    }
+    
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return sectionInsets.left
+    }
+    
 }

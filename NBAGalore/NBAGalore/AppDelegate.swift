@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
+        
         let navController = UINavigationController()
         navController.navigationBar.barTintColor = .black
+        
         let appCoordinator = AppCoordinator(navController: navController, window: window)
         app = appCoordinator
       
