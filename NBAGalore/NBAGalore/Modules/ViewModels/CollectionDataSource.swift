@@ -54,7 +54,7 @@ class CollectionDataSource<Cell: UICollectionViewCell, Header: UICollectionReusa
             
         default:
             
-            assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
     
