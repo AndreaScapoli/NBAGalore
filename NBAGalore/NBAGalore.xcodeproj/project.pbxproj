@@ -139,7 +139,6 @@
 			children = (
 				2D93165125E175B7005CF01A /* Utilities */,
 				2D93164225E174DB005CF01A /* Protocol */,
-				2D887DC625DECFB8004A5E5F /* Repository */,
 				2D887DC525DECFAD004A5E5F /* Service */,
 				2D887D8125DEBF27004A5E5F /* Modules */,
 				2D887D4825DEBEC8004A5E5F /* AppDelegate.swift */,
@@ -218,13 +217,6 @@
 				2D887DC725DED1C9004A5E5F /* NetworkManager.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		2D887DC625DECFB8004A5E5F /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		2D887DD325DEE898004A5E5F /* Models */ = {
