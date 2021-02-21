@@ -21,6 +21,7 @@ class PlayerTableViewController: UIViewController {
         self.playerTableView.delegate = self
         
         self.setupLayout()
+        self.setupBindings()
         self.updateTableDataSource(withData: [Team(id: 0, abbreviation: "we", city: "we", conference: "we", division: "we", full_name: "we", name: "we")])
     }
     
@@ -32,6 +33,19 @@ class PlayerTableViewController: UIViewController {
         self.backgroundImage.image = UIImage(named: "BasketBackground")
         self.backgroundImage.alpha = 0.6
         self.backgroundImage.contentMode = .scaleAspectFill
+    }
+    
+    private func setupBindings() {
+        
+        self.viewModel.loadingDidFinish = { [weak self] loaded in
+            
+            if loaded ?? false {
+                
+                print("\(String(describing: self?.viewModel.playerList))")
+                print("Numbre of players: \(String(describing: self?.viewModel.playerList.count))")
+            }
+            
+        }
     }
     
     private func updateTableDataSource(withData data: [Team]) {

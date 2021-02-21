@@ -52,7 +52,7 @@ class TeamCollectionViewController: UIViewController {
             
             if let cell = cell {
                 
-                cell.configureCell(teamName: data?.full_name ?? "", teamId: data?.id ?? 0)
+                cell.configureCell(teamName: data?.full_name ?? "", teamId: data?.id ?? 0, teamAbr: data?.abbreviation ?? "")
             }
             
             if let headerView = headerView {
@@ -74,7 +74,9 @@ extension TeamCollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.viewModel.navigateToPlayerTable()
+        let cell = collectionView.cellForItem(at: indexPath) as! TeamCollectionViewCell
+        
+        self.viewModel.navigateToPlayerTable(withTeam: cell.teamAbr ?? "")
     }
 }
 

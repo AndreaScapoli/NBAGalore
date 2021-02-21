@@ -29,6 +29,7 @@ class NetworkManager: NSObject {
         self.session = URLSession(configuration: config)
     }
     
+    //TODO: Error handling
     func getResponse<T: Decodable>(from url: String, decodeIn responseType: T.Type, completionHandler: @escaping (Result<T, Error>) -> () ) {
         
         guard let url = URL(string: url) else { return }
@@ -57,11 +58,27 @@ class NetworkManager: NSObject {
         task?.resume()
     }
     
+    //TODO: Bring these methods to a repository class
     func getTeams(completion: @escaping (Teams) -> Void) {
         
         let url = "https://free-nba.p.rapidapi.com/teams/"
         
         self.getResponse(from: url, decodeIn: Teams.self) { response in
+            
+            switch response {
+            case .success(let result):
+                completion(result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getPlayers(page: Int, completion: @escaping (Players) -> Void) {
+        
+        let url = "https://free-nba.p.rapidapi.com/players/?page=\(page)&per_page=100"
+        
+        self.getResponse(from: url, decodeIn: Players.self) { response in
             
             switch response {
             case .success(let result):

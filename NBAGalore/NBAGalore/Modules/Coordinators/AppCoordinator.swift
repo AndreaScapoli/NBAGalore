@@ -9,7 +9,7 @@ import UIKit
 
 protocol AppCoordination {
     
-    func coordinateToPlayerTable()
+    func coordinateToPlayerTable(withTeam team: String)
 }
 
 class AppCoordinator: Coordinator, AppCoordination {
@@ -46,9 +46,9 @@ class AppCoordinator: Coordinator, AppCoordination {
 //        childCoordinators.removeAll { $0 is AuthCoordinator }
     }
     
-    func coordinateToPlayerTable() {
+    func coordinateToPlayerTable(withTeam team: String) {
         
-        let playerCoordinator = PlayerCoordinator(navController: self.navController, window: self.window)
+        let playerCoordinator = PlayerCoordinator(navController: self.navController, window: self.window, data: team)
         playerCoordinator.start()
         
     }

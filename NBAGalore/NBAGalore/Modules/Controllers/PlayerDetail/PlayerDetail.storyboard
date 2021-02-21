@@ -12,7 +12,7 @@
         <scene sceneID="XZ2-1H-Twg">
             <objects>
                 <viewController storyboardIdentifier="playerDetail" id="V5Z-I7-kEg" customClass="PlayerDetailViewController" customModule="NBAGalore" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="Yrf-qe-9NZ">
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="Yrf-qe-9NZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

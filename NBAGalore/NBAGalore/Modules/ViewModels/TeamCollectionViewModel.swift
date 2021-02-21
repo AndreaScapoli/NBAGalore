@@ -25,6 +25,7 @@ class TeamCollectionViewModel: NSObject {
         self.retrieveData()
     }
     
+    //MARK: - Methods
     func retrieveData() {
         
         NetworkManager.shared.getTeams() { result in
@@ -33,8 +34,9 @@ class TeamCollectionViewModel: NSObject {
         }
     }
     
-    func navigateToPlayerTable() {
+    //MARK: - Navigation
+    func navigateToPlayerTable(withTeam team: String) {
         
-        self.coordinator?.coordinateToPlayerTable()
+        self.coordinator?.coordinateToPlayerTable(withTeam: team)
     }
 }

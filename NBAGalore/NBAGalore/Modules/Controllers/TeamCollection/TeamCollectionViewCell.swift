@@ -14,6 +14,7 @@ class TeamCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var teamName: UILabel!
     
     var teamId: Int?
+    var teamAbr: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,11 +26,11 @@ class TeamCollectionViewCell: UICollectionViewCell {
         teamName.numberOfLines = 0
     }
     
-    func configureCell(teamName: String, teamId: Int) {
+    func configureCell(teamName: String, teamId: Int, teamAbr: String) {
         
         self.teamName.text = teamName
         self.teamId = teamId
-        
+        self.teamAbr = teamAbr
     }
     
 }

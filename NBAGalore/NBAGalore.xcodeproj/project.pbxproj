@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3BE41C25E25C650089F4C0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BE41B25E25C650089F4C0 /* Player.swift */; };
 		2D887D4925DEBEC8004A5E5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D4825DEBEC8004A5E5F /* AppDelegate.swift */; };
 		2D887D4D25DEBEC8004A5E5F /* TeamCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */; };
 		2D887D5025DEBEC8004A5E5F /* TeamCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D887D4E25DEBEC8004A5E5F /* TeamCollection.storyboard */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D3BE41B25E25C650089F4C0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2D887D4525DEBEC8004A5E5F /* NBAGalore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAGalore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D887D4825DEBEC8004A5E5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				2D887DD525DEEA2B004A5E5F /* Team.swift */,
+				2D3BE41B25E25C650089F4C0 /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				2D93167525E17E20005CF01A /* PlayerTableViewController.swift in Sources */,
 				2D93164D25E17529005CF01A /* AppCoordinator.swift in Sources */,
 				2D887DD625DEEA2B004A5E5F /* Team.swift in Sources */,
+				2D3BE41C25E25C650089F4C0 /* Player.swift in Sources */,
 				2D93168C25E18E7B005CF01A /* TableDataSource.swift in Sources */,
 				2D93169125E19BDE005CF01A /* TeamCollectionReusableView.swift in Sources */,
 				2D887DBE25DECC3E004A5E5F /* TeamCollectionViewCell.swift in Sources */,
