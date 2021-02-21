@@ -24,11 +24,14 @@ class PlayerDetailViewController: UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var weightValue: UILabel!
     
+    @IBOutlet weak var teamLabel: UILabel!
+    @IBOutlet weak var teamValue: UILabel!
+    
     var viewModel: PlayerDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.configureLayout()
     }
     
@@ -38,18 +41,31 @@ class PlayerDetailViewController: UIViewController {
         self.playerNameLabel.text = firstName + " " + lastName
         
         self.heightLabel.text = "Height Feet: "
+        if let height_feet = self.viewModel.choosenPlayer?.height_feet {
+            self.heightValue.text = String(height_feet)
+        }
         
-        guard let height_feet = self.viewModel.choosenPlayer?.height_feet else { return }
-        self.heightValue.text = String(height_feet)
         self.inchesLabel.text = "Height Inches: "
-        guard let height_inches = self.viewModel.choosenPlayer?.height_inches else { return }
-        self.inchesValue.text = String(height_inches)
+        if let height_inches = self.viewModel.choosenPlayer?.height_inches {
+            self.inchesValue.text = String(height_inches)
+        }
+        
         self.positionLabel.text = "Position: "
-        guard let position = self.viewModel.choosenPlayer?.position else { return }
-        self.positionValue.text = String(position)
+        if let position = self.viewModel.choosenPlayer?.position {
+            if position != "" {
+                self.positionValue.text = String(position)
+            }
+        }
+        
         self.weightLabel.text = "Weight Pounds: "
-        guard let weight_pounds = self.viewModel.choosenPlayer?.weight_pounds else { return }
-        self.weightValue.text = String(weight_pounds)
+        if let weight_pounds = self.viewModel.choosenPlayer?.weight_pounds {
+            self.weightValue.text = String(weight_pounds)
+        }
+        
+        self.teamLabel.text = "Team"
+        if let teamValue = self.viewModel.choosenPlayer?.team?.full_name {
+            self.teamValue.text = String(teamValue)
+        }
         
     }
     

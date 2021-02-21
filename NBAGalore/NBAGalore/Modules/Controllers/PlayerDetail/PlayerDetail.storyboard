@@ -35,7 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="l69-Hr-QfH">
-                                        <rect key="frame" x="30" y="95" width="354" height="142"/>
+                                        <rect key="frame" x="30" y="95" width="354" height="182.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DgP-5D-3bA">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
@@ -105,6 +105,23 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-Qk-sD3">
+                                                <rect key="frame" x="0.0" y="162" width="354" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nv-hl-Buo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jf0-8v-W2x">
+                                                        <rect key="frame" x="71.5" y="0.0" width="282.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -137,11 +154,32 @@
                         <outlet property="playerNameLabel" destination="IHg-Ny-7jd" id="6fZ-vB-tyR"/>
                         <outlet property="positionLabel" destination="eLJ-tO-aKW" id="cTc-LG-EqZ"/>
                         <outlet property="positionValue" destination="dg5-yk-fnF" id="8Sl-7o-Qbt"/>
+                        <outlet property="teamLabel" destination="3nv-hl-Buo" id="Ygf-sU-0YF"/>
+                        <outlet property="teamValue" destination="jf0-8v-W2x" id="KcM-xv-mx3"/>
                         <outlet property="weightLabel" destination="HJH-19-PWP" id="15x-SJ-0gM"/>
                         <outlet property="weightValue" destination="QdG-VO-15T" id="pBS-yJ-NRj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glF-do-nwV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" id="o3B-Yc-Ynd">
+                    <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Pounds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0J-W1-jo2">
+                            <rect key="frame" x="0.0" y="0.0" width="115.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQG-ab-Tl3">
+                            <rect key="frame" x="145.5" y="0.0" width="208.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="QpK-ip-YBV"/>
+                </stackView>
             </objects>
             <point key="canvasLocation" x="-254" y="141"/>
         </scene>

@@ -81,3 +81,18 @@ extension PlayerTableViewController: UITableViewDelegate {
         self.viewModel.navigateToPlayerDetail(indexPath: indexPath)
     }
 }
+
+extension PlayerTableViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let position = scrollView.contentOffset.y
+        if position > (self.playerTableView.contentSize.height - 100 - scrollView.frame.size.height) && !self.viewModel.isPaginating {
+            
+            self.viewModel.numberOfFetch += 20
+            self.viewModel.isPaginating = true
+            self.viewModel.retrieveData()
+        }
+        
+    }
+}

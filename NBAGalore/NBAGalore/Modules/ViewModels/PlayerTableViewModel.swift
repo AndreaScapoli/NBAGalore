@@ -13,11 +13,12 @@ class PlayerTableViewModel: NSObject {
     var coordinator: PlayerCoordination?
     var choosenTeam: String?
     var playerList = [Player]()
-    
-    private var nextPage: Int? = 1
+    var numberOfFetch: Int = 20
+    var nextPage: Int? = 1
+    var isPaginating: Bool = false
     
     //MARK: - Bindings
-    private var finishedLoading: Bool = false {
+    private var finishedLoading: Bool = true {
         didSet {
             self.loadingDidFinish?(self.finishedLoading)
         }
@@ -26,6 +27,9 @@ class PlayerTableViewModel: NSObject {
     
     //MARK: - Method
     func retrieveData() {
+        
+        //If is the last page do not fetch more data
+        guard nextPage != nil else { return self.finishedLoading = true }
         
         NetworkManager.shared.getPlayers(page: nextPage ?? 1) { (result) in
             
@@ -44,8 +48,6 @@ class PlayerTableViewModel: NSObject {
         
         self.nextPage = data.meta.next_page
         
-        guard nextPage != nil else { return self.finishedLoading = true }
-        
         for player in data.data! {
             
             if player.team?.abbreviation == self.choosenTeam {
@@ -54,7 +56,14 @@ class PlayerTableViewModel: NSObject {
             }
         }
         
-        self.retrieveData()
+        if playerList.count >= self.numberOfFetch {
+            
+            self.isPaginating = false
+            self.finishedLoading = true
+        } else {
+            
+            self.retrieveData()
+        }
     }
     
     //MARK: - Navigation
