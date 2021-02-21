@@ -9,4 +9,10 @@ import Foundation
 
 class PlayerTableViewModel: NSObject {
     
+    var coordinator: PlayerCoordination?
+    
+    func navigateToPlayerDetail() {
+        
+        self.coordinator?.coordinateToPlayerDetail()
+    }
 }

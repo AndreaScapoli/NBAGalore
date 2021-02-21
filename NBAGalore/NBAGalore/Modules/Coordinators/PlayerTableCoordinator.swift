@@ -7,8 +7,13 @@
 
 import UIKit
 
-class PlayerCoordinator: Coordinator {
+protocol PlayerCoordination {
     
+    func coordinateToPlayerDetail()
+}
+
+class PlayerCoordinator: Coordinator, PlayerCoordination {
+   
     // MARK: - Properties
     private let navController: UINavigationController
     private let window: UIWindow
@@ -30,11 +35,16 @@ class PlayerCoordinator: Coordinator {
         
         let playerTableVC = UIStoryboard.instantiatePlayerTableViewController()
         
-        playerTableVC.viewModel = PlayerTableViewModel()
+        let viewModel = PlayerTableViewModel()
+        viewModel.coordinator = self
+        playerTableVC.viewModel = viewModel
         
         navController.pushViewController(playerTableVC, animated: true)
-//        navController.present(playerTableVC, animated: true, completion: nil)
     }
     
-    
+    func coordinateToPlayerDetail() {
+        
+        let playerDetailCoordinator = PlayerDetailCoordinator(navController: self.navController, window: self.window)
+        playerDetailCoordinator.start()
+    }
 }

@@ -7,11 +7,12 @@
 
 import UIKit
 
-protocol PlayerCoordination {
+protocol AppCoordination {
+    
     func coordinateToPlayerTable()
 }
 
-class AppCoordinator: Coordinator, PlayerCoordination {
+class AppCoordinator: Coordinator, AppCoordination {
     
     // MARK: - Properties
     private let navController: UINavigationController

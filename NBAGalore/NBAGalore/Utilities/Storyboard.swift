@@ -11,12 +11,19 @@ extension UIStoryboard {
     
     // MARK: - Storyboards
     private static var teamCollectionStoryboard: UIStoryboard {
+        
       return UIStoryboard(name: "TeamCollection", bundle: nil)
         
     }
     
     private static var playerTableStoryboard: UIStoryboard {
+        
         return UIStoryboard(name: "PlayerTable", bundle: nil)
+    }
+    
+    private static var playerDetailStoryboard: UIStoryboard {
+        
+        return UIStoryboard(name: "PlayerDetail", bundle: nil)
     }
     
     // MARK: - View Controllers
@@ -33,5 +40,9 @@ extension UIStoryboard {
         return playerTableVC
     }
     
-
+    static func instantiatePlayerDetailViewController() -> PlayerDetailViewController {
+        let playerDetailVC = playerDetailStoryboard.instantiateViewController(identifier: "playerDetail") as! PlayerDetailViewController
+        
+        return playerDetailVC
+    }
 }
