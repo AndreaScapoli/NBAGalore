@@ -24,14 +24,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playerCellId" id="1xh-AM-jfh" customClass="PlayerTableViewCell" customModule="NBAGalore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1xh-AM-jfh" id="5fe-jj-fxy">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlayerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-aL-6NK">
-                                                    <rect key="frame" x="20" y="11" width="355" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="355" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -52,12 +52,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Qn3-J5-GPc">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GKa-2h-ltY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Qn3-J5-GPc" firstAttribute="centerY" secondItem="b3u-Kb-4xe" secondAttribute="centerY" id="2Ft-ZD-6Xv"/>
                             <constraint firstItem="IIG-As-niN" firstAttribute="top" secondItem="GKa-2h-ltY" secondAttribute="top" id="COv-uc-nCZ"/>
                             <constraint firstItem="KI8-45-YdI" firstAttribute="bottom" secondItem="IIG-As-niN" secondAttribute="bottom" id="FMM-eD-DKW"/>
+                            <constraint firstItem="Qn3-J5-GPc" firstAttribute="centerX" secondItem="b3u-Kb-4xe" secondAttribute="centerX" id="JAr-pH-IQS"/>
                             <constraint firstItem="IIG-As-niN" firstAttribute="trailing" secondItem="GKa-2h-ltY" secondAttribute="trailing" id="dRO-R6-Rjm"/>
                             <constraint firstItem="IIG-As-niN" firstAttribute="bottom" secondItem="GKa-2h-ltY" secondAttribute="bottom" id="eko-68-6Fo"/>
                             <constraint firstItem="KI8-45-YdI" firstAttribute="leading" secondItem="IIG-As-niN" secondAttribute="leading" id="nWA-YB-rda"/>
@@ -67,6 +73,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Qn3-J5-GPc" id="Mhj-jE-1Rs"/>
                         <outlet property="backgroundImage" destination="IIG-As-niN" id="rBR-H0-dP1"/>
                         <outlet property="playerTableView" destination="KI8-45-YdI" id="MtW-ng-ytR"/>
                     </connections>

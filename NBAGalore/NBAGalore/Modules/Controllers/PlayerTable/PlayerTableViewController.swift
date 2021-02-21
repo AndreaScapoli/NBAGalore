@@ -11,9 +11,10 @@ class PlayerTableViewController: UIViewController {
     
     @IBOutlet weak var playerTableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: PlayerTableViewModel!
-    private var dataSource: TableDataSource<PlayerTableViewCell, Team>!
+    private var dataSource: TableDataSource<PlayerTableViewCell, Player>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,10 @@ class PlayerTableViewController: UIViewController {
         
         self.setupLayout()
         self.setupBindings()
-        self.updateTableDataSource(withData: [Team(id: 0, abbreviation: "we", city: "we", conference: "we", division: "we", full_name: "we", name: "we")])
+
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        self.viewModel.retrieveData()
     }
     
     private func setupLayout() {
@@ -39,20 +43,26 @@ class PlayerTableViewController: UIViewController {
         
         self.viewModel.loadingDidFinish = { [weak self] loaded in
             
+            DispatchQueue.main.async {
+                self?.activityIndicator.isHidden = true
+                self?.activityIndicator.stopAnimating()
+            }
+            
             if loaded ?? false {
                 
-                print("\(String(describing: self?.viewModel.playerList))")
-                print("Numbre of players: \(String(describing: self?.viewModel.playerList.count))")
+                self?.updateTableDataSource(withData: self?.viewModel.playerList ?? [])
             }
             
         }
     }
     
-    private func updateTableDataSource(withData data: [Team]) {
+    private func updateTableDataSource(withData data: [Player]) {
         
         self.dataSource = TableDataSource(cellIdentifier: "playerCellId", items: data, configureCell: { (cell, data) in
             
-            cell.playerName.text = "pippo"
+            guard let firstName = data.first_name else { return }
+            guard let lastName = data.last_name else { return }
+            cell.playerName.text = firstName + " " + lastName
         })
         
         DispatchQueue.main.async {
@@ -68,6 +78,6 @@ extension PlayerTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.viewModel.navigateToPlayerDetail()
+        self.viewModel.navigateToPlayerDetail(indexPath: indexPath)
     }
 }

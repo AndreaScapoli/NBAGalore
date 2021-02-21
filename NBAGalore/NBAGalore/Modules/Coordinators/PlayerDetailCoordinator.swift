@@ -17,12 +17,14 @@ class PlayerDetailCoordinator: Coordinator, PlayerDetailCoordination {
     //MARK: - Properties:
     private let navController: UINavigationController
     private let window: UIWindow
+    private let choosenPlayer: Player
     
     // MARK: - Initializer
-    init(navController: UINavigationController, window: UIWindow) {
+    init(navController: UINavigationController, window: UIWindow, choosenPlayer: Player) {
         
         self.navController = navController
         self.window = window
+        self.choosenPlayer = choosenPlayer
     }
     
     func start() {
@@ -37,6 +39,7 @@ class PlayerDetailCoordinator: Coordinator, PlayerDetailCoordination {
         let playerDetailVC = UIStoryboard.instantiatePlayerDetailViewController()
         
         let viewModel = PlayerDetailViewModel()
+        viewModel.choosenPlayer = self.choosenPlayer
         viewModel.coordinator = self
         playerDetailVC.viewModel = viewModel
         

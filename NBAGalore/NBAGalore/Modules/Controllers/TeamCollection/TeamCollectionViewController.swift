@@ -26,6 +26,8 @@ class TeamCollectionViewController: UIViewController {
         
         self.setupLayout()
         self.setupBindings()
+        
+        self.viewModel.retrieveData()
     }
     
     private func setupBindings() {

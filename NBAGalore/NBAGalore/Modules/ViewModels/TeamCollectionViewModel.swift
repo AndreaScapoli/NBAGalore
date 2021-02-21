@@ -19,12 +19,6 @@ class TeamCollectionViewModel: NSObject {
     }
     var teamsDidFetch: ((Teams?) -> Void)?
     
-    override init() {
-        super.init()
-        
-        self.retrieveData()
-    }
-    
     //MARK: - Methods
     func retrieveData() {
         

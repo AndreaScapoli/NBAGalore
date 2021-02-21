@@ -10,6 +10,7 @@ import Foundation
 class PlayerDetailViewModel: NSObject {
     
     var coordinator: PlayerDetailCoordination!
+    var choosenPlayer: Player?
     
     func dismissDetail() {
         

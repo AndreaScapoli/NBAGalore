@@ -25,18 +25,18 @@ class PlayerTableViewModel: NSObject {
     var loadingDidFinish: ((Bool?) -> Void)?
     
     //MARK: - Method
-    
-    override init() {
-        super.init()
-        
-        self.retrieveData()
-    }
-    
     func retrieveData() {
         
         NetworkManager.shared.getPlayers(page: nextPage ?? 1) { (result) in
             
-            self.filterDataFromTeam(data: result)
+            switch result{
+            case .success(let players):
+                self.filterDataFromTeam(data: players)
+            case .failure(let error):
+                self.finishedLoading = true
+                self.coordinator?.showError(withDesc: error.localizedDescription)
+            }
+            
         }
     }
     
@@ -58,8 +58,8 @@ class PlayerTableViewModel: NSObject {
     }
     
     //MARK: - Navigation
-    func navigateToPlayerDetail() {
+    func navigateToPlayerDetail(indexPath: IndexPath) {
         
-        self.coordinator?.coordinateToPlayerDetail()
+        self.coordinator?.coordinateToPlayerDetail(withPlayer: playerList[indexPath.row])
     }
 }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-public typealias ResultHandler<T> = (Result<T, Error>) -> ()
-
 class NetworkManager: NSObject {
     
     static let shared = NetworkManager()
@@ -74,7 +72,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    func getPlayers(page: Int, completion: @escaping (Players) -> Void) {
+    func getPlayers(page: Int, completion: @escaping ((Result<Players, Error>)) -> Void) {
         
         let url = "https://free-nba.p.rapidapi.com/players/?page=\(page)&per_page=100"
         
@@ -82,9 +80,9 @@ class NetworkManager: NSObject {
             
             switch response {
             case .success(let result):
-                completion(result)
+                completion(Result.success(result))
             case .failure(let error):
-                print(error)
+                completion(Result.failure(error))
             }
         }
     }
