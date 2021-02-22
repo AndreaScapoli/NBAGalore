@@ -5,7 +5,7 @@
 //  Created by Andrea Scapoli on 20/02/21.
 //
 
-import Foundation
+import UIKit
 
 class PlayerTableViewModel: NSObject {
     
@@ -21,18 +21,25 @@ class PlayerTableViewModel: NSObject {
     var isPaginating: Bool = false
     
     //MARK: - Bindings
-    private var finishedLoading: Bool = true {
+    private var dataSource: TableDataSource<PlayerTableViewCell, Player>? {
         didSet {
-            self.loadingDidFinish?(self.finishedLoading)
+            self.dataDidFetch?(self.dataSource)
         }
     }
-    var loadingDidFinish: ((Bool?) -> Void)?
+    var dataDidFetch: ((UITableViewDataSource?) -> Void)?
+    
+    private var loadFinsihed: Bool? {
+        didSet {
+            self.didFinishLoad?(self.loadFinsihed)
+        }
+    }
+    var didFinishLoad: ((Bool?) -> Void)?
     
     //MARK: - Method
     func retrieveData() {
         
         //If is the last page do not fetch more data
-        guard nextPage != nil else { return self.finishedLoading = true }
+        guard nextPage != nil else { return self.loadFinsihed = true }
         
         networkManager?.getPlayers(page: nextPage ?? 1) { [weak self] result in
             
@@ -40,7 +47,7 @@ class PlayerTableViewModel: NSObject {
             case .success(let players):
                 self?.filterDataFromTeam(data: players)
             case .failure(let error):
-                self?.finishedLoading = true
+                self?.loadFinsihed = true
                 self?.coordinator?.showError(withDesc: error.localizedDescription)
             }
             
@@ -62,11 +69,22 @@ class PlayerTableViewModel: NSObject {
         if playerList.count >= self.numberOfFetch {
             
             self.isPaginating = false
-            self.finishedLoading = true
+            self.updateTableDataSource(withData: playerList)
         } else {
             
             self.retrieveData()
         }
+    }
+    
+    private func updateTableDataSource(withData data: [Player]) {
+        
+        self.dataSource = TableDataSource(cellIdentifier: "playerCellId", items: data, configureCell: { (cell, data) in
+            
+            guard let firstName = data.first_name else { return }
+            guard let lastName = data.last_name else { return }
+            cell.playerName.text = firstName + " " + lastName
+        })
+        
     }
     
     //MARK: - Navigation

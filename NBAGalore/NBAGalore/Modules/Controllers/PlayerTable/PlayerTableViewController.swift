@@ -14,16 +14,15 @@ class PlayerTableViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: PlayerTableViewModel!
-    private var dataSource: TableDataSource<PlayerTableViewCell, Player>!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.playerTableView.delegate = self
         
         self.setupLayout()
         self.setupBindings()
-
+        
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
         self.viewModel.retrieveData()
@@ -41,37 +40,26 @@ class PlayerTableViewController: UIViewController {
     
     private func setupBindings() {
         
-        self.viewModel.loadingDidFinish = { [weak self] loaded in
+        self.viewModel.dataDidFetch = { [weak self] data in
             
             DispatchQueue.main.async {
+                
                 self?.activityIndicator.isHidden = true
                 self?.activityIndicator.stopAnimating()
+                self?.playerTableView.tableFooterView = nil
+                self?.playerTableView.dataSource = data
+                self?.playerTableView.reloadData()
             }
+        }
+        
+        self.viewModel.didFinishLoad = { [weak self] finish in
             
-            if loaded ?? false {
+            if finish ?? false {
                 
                 DispatchQueue.main.async {
                     self?.playerTableView.tableFooterView = nil
                 }
-                self?.updateTableDataSource(withData: self?.viewModel.playerList ?? [])
             }
-            
-        }
-    }
-    
-    private func updateTableDataSource(withData data: [Player]) {
-        
-        self.dataSource = TableDataSource(cellIdentifier: "playerCellId", items: data, configureCell: { (cell, data) in
-            
-            guard let firstName = data.first_name else { return }
-            guard let lastName = data.last_name else { return }
-            cell.playerName.text = firstName + " " + lastName
-        })
-        
-        DispatchQueue.main.async {
-            
-            self.playerTableView.dataSource = self.dataSource
-            self.playerTableView.reloadData()
         }
     }
     
