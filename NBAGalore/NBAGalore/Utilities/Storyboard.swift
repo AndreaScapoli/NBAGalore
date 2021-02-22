@@ -13,7 +13,6 @@ extension UIStoryboard {
     private static var teamCollectionStoryboard: UIStoryboard {
         
       return UIStoryboard(name: "TeamCollection", bundle: nil)
-        
     }
     
     private static var playerTableStoryboard: UIStoryboard {

@@ -18,7 +18,6 @@ class AppCoordinator: Coordinator, AppCoordination {
     // MARK: - Properties
     private let navController: UINavigationController
     private let window: UIWindow
-//    private var childCoordinators: [Coordinator] = []
     
     // MARK: - Initializer
     init(navController: UINavigationController, window: UIWindow) {
@@ -44,7 +43,6 @@ class AppCoordinator: Coordinator, AppCoordination {
         
         
         navController.setViewControllers([teamCollectionVC], animated: true)
-//        childCoordinators.removeAll { $0 is AuthCoordinator }
     }
     
     func coordinateToPlayerTable(withTeam team: String) {

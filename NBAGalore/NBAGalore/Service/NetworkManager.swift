@@ -12,8 +12,6 @@ class NetworkManager: NSObject {
     static let shared = NetworkManager()
     var session: URLSession?
     
-    //    typealias SerializationFunction<T> = (Data?, URLResponse?, Error?) -> Result<T>
-    
     override private init() {
         
         let config = URLSessionConfiguration.default

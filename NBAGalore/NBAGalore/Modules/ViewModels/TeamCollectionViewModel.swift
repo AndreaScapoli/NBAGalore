@@ -9,6 +9,7 @@ import Foundation
 
 class TeamCollectionViewModel: NSObject {
     
+    //MARK: - Properties
     var coordinator: AppCoordination?
     
     //MARK: Bindings

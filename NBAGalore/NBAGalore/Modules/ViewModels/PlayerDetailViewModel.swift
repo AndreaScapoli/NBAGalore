@@ -9,9 +9,11 @@ import Foundation
 
 class PlayerDetailViewModel: NSObject {
     
+    //MARK: - Properties
     var coordinator: PlayerDetailCoordination!
     var choosenPlayer: Player!
     
+    //MARK: - Navigation
     func dismissDetail() {
         
         self.coordinator.dismissPlayerDetail()
