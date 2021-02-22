@@ -14,7 +14,6 @@ class TeamCollectionViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     
     var viewModel: TeamCollectionViewModel!
-    private var dataSource: CollectionDataSource<TeamCollectionViewCell, TeamCollectionReusableView, Team>!
     
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     private let itemsPerRow: CGFloat = 3
@@ -32,9 +31,13 @@ class TeamCollectionViewController: UIViewController {
     
     private func setupBindings() {
         
-        self.viewModel.teamsDidFetch = { [weak self] teams in
+        self.viewModel.dataDidFetch = { [weak self] dataSource in
             
-            self?.updateCollectionDataSource(withData: teams?.data ?? [])
+            DispatchQueue.main.async {
+                
+                self?.collectionView.dataSource = dataSource
+                self?.collectionView.reloadData()
+            }
         }
     }
     
@@ -48,28 +51,6 @@ class TeamCollectionViewController: UIViewController {
         self.backgroundImage.contentMode = .scaleAspectFill
     }
     
-    private func updateCollectionDataSource(withData data: [Team]) {
-        
-        self.dataSource = CollectionDataSource(cellIdentifier: "teamCellId", items: data, headerViewIdentifier: "collectionHeader", headerTitle: "Choose A Team: ", configureCell: { (cell, headerView, data, headerTitle) in
-            
-            if let cell = cell {
-                
-                cell.configureCell(teamName: data?.full_name ?? "", teamId: data?.id ?? 0, teamAbr: data?.abbreviation ?? "")
-            }
-            
-            if let headerView = headerView {
-                
-                headerView.headerTitle.text = headerTitle
-            }
-            
-        })
-        
-        DispatchQueue.main.async {
-            
-            self.collectionView.dataSource = self.dataSource
-            self.collectionView.reloadData()
-        }
-    }
 }
 
 extension TeamCollectionViewController: UICollectionViewDelegate {

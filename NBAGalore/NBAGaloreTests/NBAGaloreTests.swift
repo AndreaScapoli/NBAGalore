@@ -29,5 +29,24 @@ class NBAGaloreTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testMemoryLeak() {
+        
+        //weak self in API closures
+        let controller = TeamCollectionViewController()
+        let network = NetworkManager()
+        let viewModel = TeamCollectionViewModel()
+
+        viewModel.networkManager = network
+        controller.viewModel = viewModel
+
+        viewModel.retrieveData()
+
+        addTeardownBlock { [weak viewModel] in
+             // code here will be executed after teardown
+
+            XCTAssertNil(viewModel)
+        }
+    }
 
 }

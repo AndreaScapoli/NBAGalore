@@ -5,7 +5,7 @@
 //  Created by Andrea Scapoli on 18/02/21.
 //
 
-import Foundation
+import UIKit
 
 class TeamCollectionViewModel: NSObject {
     
@@ -14,12 +14,12 @@ class TeamCollectionViewModel: NSObject {
     var networkManager: TeamNetworking?
     
     //MARK: Bindings
-    private var teams: Teams? {
+    private var dataSource: CollectionDataSource<TeamCollectionViewCell, TeamCollectionReusableView, Team>? {
         didSet {
-            self.teamsDidFetch?(self.teams)
+            self.dataDidFetch?(self.dataSource)
         }
     }
-    var teamsDidFetch: ((Teams?) -> Void)?
+    var dataDidFetch: ((UICollectionViewDataSource?) -> Void)?
     
     //MARK: - Methods
     func retrieveData() {
@@ -28,12 +28,29 @@ class TeamCollectionViewModel: NSObject {
             
             switch result {
             case .success(let teams):
-                self?.teams = teams
+                self?.updateCollectionDataSource(withData: teams.data)
             case .failure(let error):
                 self?.coordinator?.showError(withDesc: error.localizedDescription)
             }
             
         }
+    }
+    
+    private func updateCollectionDataSource(withData data: [Team]) {
+        
+        self.dataSource = CollectionDataSource(cellIdentifier: "teamCellId", items: data, headerViewIdentifier: "collectionHeader", headerTitle: "Choose A Team: ", configureCell: { (cell, headerView, data, headerTitle) in
+            
+            if let cell = cell {
+                
+                cell.configureCell(teamName: data?.full_name ?? "", teamId: data?.id ?? 0, teamAbr: data?.abbreviation ?? "")
+            }
+            
+            if let headerView = headerView {
+                
+                headerView.headerTitle.text = headerTitle
+            }
+            
+        })
     }
     
     //MARK: - Navigation
