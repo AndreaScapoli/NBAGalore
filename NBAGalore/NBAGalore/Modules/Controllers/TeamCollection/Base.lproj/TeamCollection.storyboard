@@ -34,23 +34,8 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FsH-pE-tKA">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yy-oB-Maj">
-                                                    <rect key="frame" x="43" y="54.5" width="42.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="6yy-oB-Maj" firstAttribute="centerY" secondItem="FsH-pE-tKA" secondAttribute="centerY" id="Hg2-nh-p6T"/>
-                                                <constraint firstItem="6yy-oB-Maj" firstAttribute="centerX" secondItem="FsH-pE-tKA" secondAttribute="centerX" id="c6I-a4-ema"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="128" height="128"/>
-                                        <connections>
-                                            <outlet property="teamName" destination="6yy-oB-Maj" id="qJm-JV-00X"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="collectionHeader" id="h3Z-Js-xDO" customClass="TeamCollectionReusableView" customModule="NBAGalore" customModuleProvider="target">

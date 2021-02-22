@@ -9,12 +9,16 @@ import UIKit
 
 class TeamCollectionViewCell: UICollectionViewCell {
     
-    //MARK: Outlets:
-    
-    @IBOutlet weak var teamName: UILabel!
-    
     var teamId: Int?
     var teamAbr: String?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,13 +26,19 @@ class TeamCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 20.0
         self.contentView.backgroundColor = .lightGray
         self.contentView.alpha = 0.8
-        
-        teamName.numberOfLines = 0
     }
     
     func configureCell(teamName: String, teamId: Int, teamAbr: String) {
         
-        self.teamName.text = teamName
+        let label = UILabel(frame: CGRect(origin: self.bounds.origin, size: self.bounds.size))
+        label.textAlignment = .center
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.font = .boldSystemFont(ofSize: 18)
+        
+        self.addSubview(label)
+        
+        label.text = teamName
         self.teamId = teamId
         self.teamAbr = teamAbr
     }
