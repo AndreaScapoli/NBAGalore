@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D3BE41C25E25C650089F4C0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BE41B25E25C650089F4C0 /* Player.swift */; };
+		2D3BE44325E3E85E0089F4C0 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BE44225E3E85E0089F4C0 /* MockNetworkManager.swift */; };
 		2D887D4925DEBEC8004A5E5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D4825DEBEC8004A5E5F /* AppDelegate.swift */; };
 		2D887D4D25DEBEC8004A5E5F /* TeamCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */; };
 		2D887D5025DEBEC8004A5E5F /* TeamCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D887D4E25DEBEC8004A5E5F /* TeamCollection.storyboard */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		2D3BE41B25E25C650089F4C0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2D3BE44225E3E85E0089F4C0 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		2D887D4525DEBEC8004A5E5F /* NBAGalore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAGalore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D887D4825DEBEC8004A5E5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D887D4C25DEBEC8004A5E5F /* TeamCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				2D887DC725DED1C9004A5E5F /* NetworkManager.swift */,
+				2D3BE44225E3E85E0089F4C0 /* MockNetworkManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				2D887D8525DEBF6B004A5E5F /* TeamCollectionViewModel.swift in Sources */,
 				2D9316A225E24E7F005CF01A /* PlayerDetailViewController.swift in Sources */,
 				2D887DFA25DFC9EB004A5E5F /* CollectionDataSource.swift in Sources */,
+				2D3BE44325E3E85E0089F4C0 /* MockNetworkManager.swift in Sources */,
 				2D93164425E174E8005CF01A /* Coordinator.swift in Sources */,
 				2D93167025E17E06005CF01A /* PlayerTableViewModel.swift in Sources */,
 			);

@@ -48,5 +48,21 @@ class NBAGaloreTests: XCTestCase {
             XCTAssertNil(viewModel)
         }
     }
+    
+    func testViewModelRightCalls() {
+        
+        //change in PlayerTableViewModel for other protocol testing...
+        let viewModel = TeamCollectionViewModel()
+        let mockNetwork = MockNetworkManager()
+        
+        viewModel.networkManager = mockNetwork
+        
+        viewModel.retrieveData()
+        
+        //Shoul call this one...
+        XCTAssert(mockNetwork.isFetchTeamCalled)
+        //Should not call this one...
+        XCTAssert(!mockNetwork.isPlayerTeamCalled)
+    }
 
 }
