@@ -24,7 +24,13 @@ class TeamCollectionViewModel: NSObject {
         
         NetworkManager.shared.getTeams() { result in
             
-            self.teams = result
+            switch result {
+            case .success(let teams):
+                self.teams = teams
+            case .failure(let error):
+                self.coordinator?.showError(withDesc: error.localizedDescription)
+            }
+            
         }
     }
     

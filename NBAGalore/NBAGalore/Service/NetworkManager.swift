@@ -57,7 +57,7 @@ class NetworkManager: NSObject {
     }
     
     //TODO: Bring these methods to a repository class
-    func getTeams(completion: @escaping (Teams) -> Void) {
+    func getTeams(completion: @escaping ((Result<Teams, Error>)) -> Void) {
         
         let url = "https://free-nba.p.rapidapi.com/teams/"
         
@@ -65,9 +65,9 @@ class NetworkManager: NSObject {
             
             switch response {
             case .success(let result):
-                completion(result)
+                completion(Result.success(result))
             case .failure(let error):
-                print(error)
+                completion(Result.failure(error))
             }
         }
     }

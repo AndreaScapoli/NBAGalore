@@ -10,6 +10,7 @@ import UIKit
 protocol AppCoordination {
     
     func coordinateToPlayerTable(withTeam team: String)
+    func showError(withDesc desc: String)
 }
 
 class AppCoordinator: Coordinator, AppCoordination {
@@ -51,5 +52,19 @@ class AppCoordinator: Coordinator, AppCoordination {
         let playerCoordinator = PlayerCoordinator(navController: self.navController, window: self.window, data: team)
         playerCoordinator.start()
         
+    }
+    
+    func showError(withDesc desc: String) {
+        
+        let alert = UIAlertController(title: "ERROR", message: desc, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            
+            self.navController.popViewController(animated: true)
+        }))
+        
+        DispatchQueue.main.async {
+            self.navController.present(alert, animated: true, completion: nil)
+        }
     }
 }
