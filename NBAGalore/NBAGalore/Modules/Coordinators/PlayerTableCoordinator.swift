@@ -19,7 +19,6 @@ class PlayerCoordinator: Coordinator, PlayerCoordination {
     private let navController: UINavigationController
     private let window: UIWindow
     private let data: String
-    private var indicatorView: UIActivityIndicatorView?
     
     // MARK: - Initializer
     init(navController: UINavigationController, window: UIWindow, data: String) {

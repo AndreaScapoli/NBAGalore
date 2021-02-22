@@ -11,8 +11,10 @@ class PlayerTableViewModel: NSObject {
     
     //MARK: - Properties
     var coordinator: PlayerCoordination?
+    
     var choosenTeam: String?
     var playerList = [Player]()
+    
     var numberOfFetch: Int = 20
     var nextPage: Int? = 1
     var isPaginating: Bool = false
