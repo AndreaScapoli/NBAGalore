@@ -11,6 +11,7 @@ class TeamCollectionViewCell: UICollectionViewCell {
     
     var teamId: Int?
     var teamAbr: String?
+    var label: UILabel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,15 +31,17 @@ class TeamCollectionViewCell: UICollectionViewCell {
     
     func configureCell(teamName: String, teamId: Int, teamAbr: String) {
         
-        let label = UILabel(frame: CGRect(origin: self.bounds.origin, size: self.bounds.size))
-        label.textAlignment = .center
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 18)
+        self.label?.removeFromSuperview()
         
-        self.addSubview(label)
+        self.label = UILabel(frame: CGRect(origin: self.bounds.origin, size: self.bounds.size))
+        self.label?.textAlignment = .center
+        self.label?.lineBreakMode = .byWordWrapping
+        self.label?.numberOfLines = 0
+        self.label?.font = .boldSystemFont(ofSize: 18)
         
-        label.text = teamName
+        self.addSubview(label ?? UILabel())
+        
+        label?.text = teamName
         self.teamId = teamId
         self.teamAbr = teamAbr
     }
