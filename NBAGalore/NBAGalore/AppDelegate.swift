@@ -17,11 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
+        let networkManager = NetworkManager()
+        
         let navController = UINavigationController()
         navController.navigationBar.barTintColor = .black
         navController.navigationBar.tintColor = .lightGray
         
-        let appCoordinator = AppCoordinator(navController: navController, window: window)
+        let appCoordinator = AppCoordinator(navController: navController, window: window, network: networkManager)
         app = appCoordinator
       
         appCoordinator.start()

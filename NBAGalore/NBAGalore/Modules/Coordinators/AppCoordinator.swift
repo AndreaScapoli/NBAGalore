@@ -17,12 +17,14 @@ class AppCoordinator: Coordinator, AppCoordination {
     
     // MARK: - Properties
     private let navController: UINavigationController
+    private let networkManager: NetworkManager
     private let window: UIWindow
     
     // MARK: - Initializer
-    init(navController: UINavigationController, window: UIWindow) {
+    init(navController: UINavigationController, window: UIWindow, network: NetworkManager) {
         self.navController = navController
         self.window = window
+        self.networkManager = network
     }
     
     func start() {
@@ -36,18 +38,19 @@ class AppCoordinator: Coordinator, AppCoordination {
     private func presentTeamCollectionView() {
         
         let teamCollectionVC = UIStoryboard.instantiateTeamCollectionViewController()
-        
         let viewModel = TeamCollectionViewModel()
+        let networkManager = self.networkManager
+        
+        viewModel.networkManager = networkManager
         viewModel.coordinator = self
         teamCollectionVC.viewModel = viewModel
-        
         
         navController.setViewControllers([teamCollectionVC], animated: true)
     }
     
     func coordinateToPlayerTable(withTeam team: String) {
         
-        let playerCoordinator = PlayerCoordinator(navController: self.navController, window: self.window, data: team)
+        let playerCoordinator = PlayerCoordinator(navController: self.navController, window: self.window, networkManager: self.networkManager, data: team)
         playerCoordinator.start()
         
     }

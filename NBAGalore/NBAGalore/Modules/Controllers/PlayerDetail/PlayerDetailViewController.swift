@@ -62,7 +62,7 @@ class PlayerDetailViewController: UIViewController {
             self.weightValue.text = String(weight_pounds)
         }
         
-        self.teamLabel.text = "Team"
+        self.teamLabel.text = "Team: "
         if let teamValue = self.viewModel.choosenPlayer?.team?.full_name {
             self.teamValue.text = String(teamValue)
         }

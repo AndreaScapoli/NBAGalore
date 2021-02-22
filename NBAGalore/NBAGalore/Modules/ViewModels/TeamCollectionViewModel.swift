@@ -11,6 +11,7 @@ class TeamCollectionViewModel: NSObject {
     
     //MARK: - Properties
     var coordinator: AppCoordination?
+    var networkManager: TeamNetworking?
     
     //MARK: Bindings
     private var teams: Teams? {
@@ -23,7 +24,7 @@ class TeamCollectionViewModel: NSObject {
     //MARK: - Methods
     func retrieveData() {
         
-        NetworkManager.shared.getTeams() { [weak self] result in
+        networkManager?.getTeams() { [weak self] result in
             
             switch result {
             case .success(let teams):
@@ -41,3 +42,5 @@ class TeamCollectionViewModel: NSObject {
         self.coordinator?.coordinateToPlayerTable(withTeam: team)
     }
 }
+
+

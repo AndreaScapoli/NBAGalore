@@ -18,13 +18,15 @@ class PlayerCoordinator: Coordinator, PlayerCoordination {
     // MARK: - Properties
     private let navController: UINavigationController
     private let window: UIWindow
+    private let networkManager: NetworkManager
     private let data: String
     
     // MARK: - Initializer
-    init(navController: UINavigationController, window: UIWindow, data: String) {
+    init(navController: UINavigationController, window: UIWindow, networkManager: NetworkManager, data: String) {
         self.navController = navController
         self.window = window
         self.data = data
+        self.networkManager = networkManager
     }
     
     func start() {
@@ -37,9 +39,11 @@ class PlayerCoordinator: Coordinator, PlayerCoordination {
     private func presentPlayerTableView() {
         
         let playerTableVC = UIStoryboard.instantiatePlayerTableViewController()
-        
+        let networkManager = NetworkManager()
         let viewModel = PlayerTableViewModel()
+        
         viewModel.coordinator = self
+        viewModel.networkManager = networkManager
         viewModel.choosenTeam = self.data
         playerTableVC.viewModel = viewModel
         

@@ -11,6 +11,7 @@ class PlayerTableViewModel: NSObject {
     
     //MARK: - Properties
     var coordinator: PlayerCoordination?
+    var networkManager: PlayerNetworking?
     
     var choosenTeam: String?
     var playerList = [Player]()
@@ -33,7 +34,7 @@ class PlayerTableViewModel: NSObject {
         //If is the last page do not fetch more data
         guard nextPage != nil else { return self.finishedLoading = true }
         
-        NetworkManager.shared.getPlayers(page: nextPage ?? 1) { [weak self] result in
+        networkManager?.getPlayers(page: nextPage ?? 1) { [weak self] result in
             
             switch result{
             case .success(let players):

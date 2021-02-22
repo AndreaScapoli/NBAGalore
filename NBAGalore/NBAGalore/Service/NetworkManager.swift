@@ -7,12 +7,21 @@
 
 import Foundation
 
-class NetworkManager: NSObject {
+protocol TeamNetworking {
     
-    static let shared = NetworkManager()
+    func getTeams(completion: @escaping ((Result<Teams, Error>)) -> Void)
+}
+
+protocol PlayerNetworking {
+    
+    func getPlayers(page: Int, completion: @escaping ((Result<Players, Error>)) -> Void)
+}
+
+class NetworkManager: NSObject, TeamNetworking, PlayerNetworking {
+    
     var session: URLSession?
     
-    override private init() {
+    override init() {
         
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .useProtocolCachePolicy
