@@ -22,13 +22,13 @@ class TeamCollectionViewModel: NSObject {
     //MARK: - Methods
     func retrieveData() {
         
-        NetworkManager.shared.getTeams() { result in
+        NetworkManager.shared.getTeams() { [weak self] result in
             
             switch result {
             case .success(let teams):
-                self.teams = teams
+                self?.teams = teams
             case .failure(let error):
-                self.coordinator?.showError(withDesc: error.localizedDescription)
+                self?.coordinator?.showError(withDesc: error.localizedDescription)
             }
             
         }

@@ -31,14 +31,14 @@ class PlayerTableViewModel: NSObject {
         //If is the last page do not fetch more data
         guard nextPage != nil else { return self.finishedLoading = true }
         
-        NetworkManager.shared.getPlayers(page: nextPage ?? 1) { (result) in
+        NetworkManager.shared.getPlayers(page: nextPage ?? 1) { [weak self] result in
             
             switch result{
             case .success(let players):
-                self.filterDataFromTeam(data: players)
+                self?.filterDataFromTeam(data: players)
             case .failure(let error):
-                self.finishedLoading = true
-                self.coordinator?.showError(withDesc: error.localizedDescription)
+                self?.finishedLoading = true
+                self?.coordinator?.showError(withDesc: error.localizedDescription)
             }
             
         }

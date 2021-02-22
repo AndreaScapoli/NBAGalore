@@ -11,13 +11,13 @@ class CollectionDataSource<Cell: UICollectionViewCell, Header: UICollectionReusa
     
     //MARK: Properties
     private var cellIdentifier : String
-    private var headerViewIdentifier: String?
+    private var headerViewIdentifier: String
     private var items : [T]?
     private var headerTitle: String?
     var configureCell : (Cell?, Header?, T?, String?) -> () = {_, _, _, _   in }
     
     
-    init(cellIdentifier : String, items : [T], headerViewIdentifier: String?, headerTitle: String?, configureCell :@escaping (Cell?, Header?, T?, String?) -> ()) {
+    init(cellIdentifier : String, items : [T], headerViewIdentifier: String, headerTitle: String?, configureCell :@escaping (Cell?, Header?, T?, String?) -> ()) {
         
         self.cellIdentifier = cellIdentifier
         self.headerViewIdentifier = headerViewIdentifier
@@ -47,7 +47,7 @@ class CollectionDataSource<Cell: UICollectionViewCell, Header: UICollectionReusa
         
         case UICollectionView.elementKindSectionHeader:
             
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "collectionHeader", for: indexPath) as! Header
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerViewIdentifier, for: indexPath) as! Header
             self.configureCell(nil, headerView, nil, self.headerTitle)
             
             return headerView
